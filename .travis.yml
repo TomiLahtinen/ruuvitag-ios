@@ -1,4 +1,4 @@
 language: objective-c
-xcode_project: ruuvitag-ios.xcodeproj # path to your xcodeproj folder
-xcode_scheme: ruuvitag-ios
-xcodebuild -workspace ruuvitag-ios.xcworkspace -scheme ruuvitag-ios -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+script:
+  - xctool -workspace ruuvitag-ios.xcworkspace -scheme ruuvitag-ios -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool run-tests -workspace ruuvitag-ios.xcworkspace -scheme ruuvitag-iosTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
