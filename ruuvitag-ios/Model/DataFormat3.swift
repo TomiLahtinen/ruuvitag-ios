@@ -65,7 +65,7 @@ public struct SensorValues {
     init(data rawData: DataFormat3) {
         self.humidity = Float(rawData.humidity) * 0.5
         self.temperature = Float(rawData.temperatureWhole) + (Float(rawData.temperatureFraction) / 100.0)
-        self.pressure = (Int(rawData.pressure) + 50_000) / 100
+        self.pressure = Int((Float(rawData.pressure) + 50_000.0) / 100.0)
         self.accelerationX = Int(rawData.accelerationX)
         self.accelerationY = Int(rawData.accelerationY)
         self.accelerationZ = Int(rawData.accelerationZ)
