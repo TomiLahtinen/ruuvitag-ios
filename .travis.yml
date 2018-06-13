@@ -1,8 +1,11 @@
+language: objective-c
+osx_image: xcode9.3
+xcode_project: ruuvitag-ios.xcodeproject
+xcode_scheme: ruuvitag-ios
+xcode_sdk: iphonesimulator11.4
+
 before_install:
   - gem install xcodeproj
   - gem install cocoapods -v '1.4.0'
-language: objective-c
-osx_image: xcode9
-xcode_project: ruuvitag-ios.xcodeproject
-xcode_scheme: ruuvitag-ios
+
 script: xcrun xcodebuild test -workspace ruuvitag-ios.xcworkspace -scheme ruuvitag-iosTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=11.4'
