@@ -46,7 +46,7 @@ class RuuviTagConnector: NSObject, RuuviTagsProtocol {
     
     public func stopScanning() {
         if centralManager.isScanning {
-            ruuvitag-ioscentralManager.stopScan()
+            centralManager.stopScan()
         }
     }
 }
