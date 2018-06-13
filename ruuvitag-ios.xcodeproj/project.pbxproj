@@ -13,6 +13,7 @@
 		56C0906A20CFE5CE00CCFED1 /* DataFormat3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C0906920CFE5CE00CCFED1 /* DataFormat3.swift */; };
 		56C0906C20CFE5E000CCFED1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C0906B20CFE5E000CCFED1 /* Constants.swift */; };
 		56C0906F20CFE62000CCFED1 /* RuuviBLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C0906E20CFE62000CCFED1 /* RuuviBLEController.swift */; };
+		56C090AB20D1194500CCFED1 /* TagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C090AA20D1194500CCFED1 /* TagInfo.swift */; };
 		AEA4892E81B11C2267BC31BF /* Pods_ruuvitag_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCD6FDA99A0C7E740DB3415 /* Pods_ruuvitag_ios.framework */; };
 		E21DDFBAC45C3A8C8E7EF97B /* Pods_ruuvitag_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D463DBE97B8ADAEF948F1A /* Pods_ruuvitag_iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		56C0906920CFE5CE00CCFED1 /* DataFormat3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormat3.swift; sourceTree = "<group>"; };
 		56C0906B20CFE5E000CCFED1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		56C0906E20CFE62000CCFED1 /* RuuviBLEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuuviBLEController.swift; sourceTree = "<group>"; };
+		56C090AA20D1194500CCFED1 /* TagInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfo.swift; sourceTree = "<group>"; };
 		9FCD6FDA99A0C7E740DB3415 /* Pods_ruuvitag_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ruuvitag_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A71C3EE422DB28F5AD9C64BB /* Pods-ruuvitag-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ruuvitag-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ruuvitag-ios/Pods-ruuvitag-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		B323584A72FAD114CB046978 /* Pods-ruuvitag-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ruuvitag-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ruuvitag-iosTests/Pods-ruuvitag-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				56C0906920CFE5CE00CCFED1 /* DataFormat3.swift */,
 				56C0906B20CFE5E000CCFED1 /* Constants.swift */,
+				56C090AA20D1194500CCFED1 /* TagInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56C090AB20D1194500CCFED1 /* TagInfo.swift in Sources */,
 				56C0906A20CFE5CE00CCFED1 /* DataFormat3.swift in Sources */,
 				56C0906C20CFE5E000CCFED1 /* Constants.swift in Sources */,
 				56C0906F20CFE62000CCFED1 /* RuuviBLEController.swift in Sources */,

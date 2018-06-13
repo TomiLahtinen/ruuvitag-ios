@@ -14,19 +14,19 @@ public protocol RuuviTagsProtocol {
     func stopScanning()
 }
 
-class RuuviTagConnector: NSObject, RuuviTagsProtocol {
+public class RuuviTagConnector: NSObject, RuuviTagsProtocol {
 
-    private let advertisementData: (SensorValues) -> ()
+    private let advertisementData: (TagInfo) -> ()
     private var centralManager: CBCentralManager
     private let dataDispatchQueue = DispatchQueue(label: "RuuviData_DispatchQueue")
     
-    public static func create(onDataReceived: @escaping (SensorValues) -> ()) -> RuuviTagsProtocol {
+    public static func create(onDataReceived: @escaping (TagInfo) -> ()) -> RuuviTagsProtocol {
         let tags = RuuviTagConnector(onDataReceived)
         tags.startScanning()
         return tags
     }
     
-    private init(_ advertisementData: @escaping (SensorValues) -> ()) {
+    private init(_ advertisementData: @escaping (TagInfo) -> ()) {
         self.advertisementData = advertisementData
         
         let opts = [CBCentralManagerScanOptionSolicitedServiceUUIDsKey: true,
@@ -65,7 +65,10 @@ extension RuuviTagConnector: CBCentralManagerDelegate {
         if let manufacturerData = advertisementData[CBAdvertisementDataManufacturerDataKey],
             let rawData = DataFormat3.decode(data: manufacturerData as? Data, rssi: RSSI.intValue) {
             debugPrint("RuuviTag data received", peripheral.identifier, "rssi", RSSI)
-            self.advertisementData(SensorValues.init(data: rawData))
+            
+            let sensorValues = SensorValues.init(data: rawData)
+            
+            self.advertisementData(TagInfo(uuid: peripheral.identifier, name: peripheral.name, sensorValues: sensorValues))
         }
     }
 }
