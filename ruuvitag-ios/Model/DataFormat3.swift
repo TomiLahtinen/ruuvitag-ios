@@ -53,9 +53,9 @@ struct DataFormat3 {
 }
 
 public struct SensorValues {
-    let humidity: Int           // percentage
+    let humidity: Float         // percentage
     let temperature: Float      // degrees Celsius
-    let pressure: Int           // kPa
+    let pressure: Int           // hPa
     let accelerationX: Int      // mG
     let accelerationY: Int      // mG
     let accelerationZ: Int      // mG
@@ -63,9 +63,9 @@ public struct SensorValues {
     let rssi: Int
     
     init(data rawData: DataFormat3) {
-        self.humidity = Int(rawData.humidity)
+        self.humidity = Float(rawData.humidity) * 0.5
         self.temperature = Float(rawData.temperatureWhole) + (Float(rawData.temperatureFraction) / 100.0)
-        self.pressure = Int(rawData.pressure) - 50_000
+        self.pressure = (Int(rawData.pressure) + 50_000) / 100
         self.accelerationX = Int(rawData.accelerationX)
         self.accelerationY = Int(rawData.accelerationY)
         self.accelerationZ = Int(rawData.accelerationZ)
