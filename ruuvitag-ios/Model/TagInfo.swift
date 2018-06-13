@@ -8,7 +8,7 @@
 
 import Foundation
 
-open struct TagInfo {
+public struct TagInfo {
     let uuid: UUID
     let name: String?
     let sensorValues: SensorValues

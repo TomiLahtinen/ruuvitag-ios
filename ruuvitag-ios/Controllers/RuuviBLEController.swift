@@ -9,24 +9,24 @@
 import Foundation
 import CoreBluetooth
 
-public protocol RuuviTagsProtocol {
+public protocol RuuviTags {
     func startScanning()
     func stopScanning()
 }
 
-public class RuuviTagConnector: NSObject, RuuviTagsProtocol {
+extension RuuviTags {
+    public static func listen(forAdvertisement dataReceived: @escaping (TagInfo) -> ()) -> RuuviTags {
+        return RuuviTagConnector(dataReceived)
+    }
+}
+
+fileprivate class RuuviTagConnector: NSObject, RuuviTags {
 
     private let advertisementData: (TagInfo) -> ()
     private var centralManager: CBCentralManager
     private let dataDispatchQueue = DispatchQueue(label: "RuuviData_DispatchQueue")
     
-    public static func create(onDataReceived: @escaping (TagInfo) -> ()) -> RuuviTagsProtocol {
-        let tags = RuuviTagConnector(onDataReceived)
-        tags.startScanning()
-        return tags
-    }
-    
-    private init(_ advertisementData: @escaping (TagInfo) -> ()) {
+    fileprivate init(_ advertisementData: @escaping (TagInfo) -> ()) {
         self.advertisementData = advertisementData
         
         let opts = [CBCentralManagerScanOptionSolicitedServiceUUIDsKey: true,
@@ -38,13 +38,13 @@ public class RuuviTagConnector: NSObject, RuuviTagsProtocol {
         centralManager.delegate = self
     }
     
-    public func startScanning() {
+    fileprivate func startScanning() {
         if !centralManager.isScanning {
             centralManager.scanForPeripherals(withServices: nil, options: nil)
         }
     }
     
-    public func stopScanning() {
+    fileprivate func stopScanning() {
         if centralManager.isScanning {
             centralManager.stopScan()
         }
@@ -64,10 +64,7 @@ extension RuuviTagConnector: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if let manufacturerData = advertisementData[CBAdvertisementDataManufacturerDataKey],
             let rawData = DataFormat3.decode(data: manufacturerData as? Data, rssi: RSSI.intValue) {
-            debugPrint("RuuviTag data received", peripheral.identifier, "rssi", RSSI)
-            
             let sensorValues = SensorValues.init(data: rawData)
-            
             self.advertisementData(TagInfo(uuid: peripheral.identifier, name: peripheral.name, sensorValues: sensorValues))
         }
     }
