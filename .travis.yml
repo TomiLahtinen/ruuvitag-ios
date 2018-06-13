@@ -5,7 +5,4 @@ language: objective-c
 osx_image: xcode9
 xcode_project: ruuvitag-ios.xcodeproject
 xcode_scheme: ruuvitag-ios
-script: xcrun xcodebuild test -project ruuvitag-ios.xcodeproject -scheme ruuvitag-ios -sdk iphonesimulator -destination 'platform=iOS Simulator, name=iPhone X,OS=11.0'
-# script:
-  # - xctool -workspace ruuvitag-ios.xcworkspace -scheme ruuvitag-ios -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-  # - xctool run-tests -workspace ruuvitag-ios.xcworkspace -scheme ruuvitag-iosTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+script: xcrun xcodebuild test -workspace ruuvitag-ios.xcworkspace -scheme ruuvitag-iosTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=11.4'
