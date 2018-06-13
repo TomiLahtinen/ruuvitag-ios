@@ -497,6 +497,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A71C3EE422DB28F5AD9C64BB /* Pods-ruuvitag-ios.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -525,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5178233A873BB74486CE4AD3 /* Pods-ruuvitag-ios.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
