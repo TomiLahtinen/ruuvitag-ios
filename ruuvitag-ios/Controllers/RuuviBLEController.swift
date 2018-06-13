@@ -28,7 +28,6 @@ class RuuviTagConnector: NSObject, RuuviTagsProtocol {
     
     private init(_ advertisementData: @escaping (SensorValues) -> ()) {
         self.advertisementData = advertisementData
-        self.autoStart = autoStart
         
         let opts = [CBCentralManagerScanOptionSolicitedServiceUUIDsKey: true,
                     CBCentralManagerOptionShowPowerAlertKey: true,
@@ -40,11 +39,15 @@ class RuuviTagConnector: NSObject, RuuviTagsProtocol {
     }
     
     public func startScanning() {
-        centralManager.scanForPeripherals(withServices: nil, options: nil)
+        if !centralManager.isScanning {
+            centralManager.scanForPeripherals(withServices: nil, options: nil)
+        }
     }
     
     public func stopScanning() {
-        centralManager.stopScan()
+        if centralManager.isScanning {
+            ruuvitag-ioscentralManager.stopScan()
+        }
     }
 }
 
@@ -52,9 +55,7 @@ extension RuuviTagConnector: CBCentralManagerDelegate {
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch centralManager.state {
         case .poweredOn:
-            if autoStart {
-                centralManager.scanForPeripherals(withServices: nil, options: nil)
-            }
+            centralManager.scanForPeripherals(withServices: nil, options: nil)
         default:
             debugPrint("Central manager state", centralManager.state)
         }
