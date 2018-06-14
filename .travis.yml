@@ -2,10 +2,17 @@ language: swift
 osx_image: xcode9.3
 xcode_project: ruuvitag-ios.xcodeproject
 xcode_scheme: ruuvitag-ios
-xcode_sdk: iphonesimulator11.4
+xcode_sdk: iphonesimulator11.3
+
+env:
+    global:
+        - WORKSPACE=ruuvitag-ios.xcworkspace
+        - SCHEME=ruuvitag-ios
+        - DESTINATION="OS=11.3,name=iPhone X"
 
 before_install:
   - gem install xcodeproj
   - gem install cocoapods -v '1.4.0'
 
-script: xcrun xcodebuild test -workspace ruuvitag-ios.xcworkspace -scheme ruuvitag-iosTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=11.4'
+script:
+xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
