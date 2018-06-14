@@ -8,14 +8,16 @@ env:
     global:
         - WORKSPACE=ruuvitag-ios.xcworkspace
         - SCHEME=ruuvitag-ios
-        - DESTINATION="OS=11.3,name=iPhone X"
+        - DESTINATION="OS=11.3,name=iPhone8"
+        - SDK=iphonesimulator
 
 before_install:
-  - gem install xcodeproj
-  - gem install cocoapods -v '1.4.0'
+    - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+    - gem install xcodeproj
+    - gem install cocoapods -v '1.4.0'
 
 script:
     - set -o pipefail
     - xcodebuild -version
     - xcodebuild -showsdks
-    - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+    - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
