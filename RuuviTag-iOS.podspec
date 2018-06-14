@@ -13,5 +13,6 @@ Pod::Spec.new do |s|
   # s.resources    = "ruuvitag-ios/**/*.{png,jpeg,jpg,storyboard,xib}"
   s.swift_version = '4.0'
   s.ios.deployment_target = '11.0'
+  s.tvos.deployment_target = '9.0'
   s.dependency 'SwiftBytes'
 end
