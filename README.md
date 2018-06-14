@@ -9,7 +9,7 @@ Simple way to listen to RuuviTags' advertisement data on iOS. Put your tag to ra
 ### Installation
 First, add this pod repository to your Podfile, sorry, no official Cocoapod yet
 ```
-pod 'RuuviTag-iOS', :git => 'https://github.com/TomiLahtinen/ruuvitag-ios.git', :tag => '1.0.3' 
+pod 'RuuviTag-iOS', :git => 'https://github.com/TomiLahtinen/ruuvitag-ios.git', :tag => '1.0.4' 
 ```
 
 Then run
