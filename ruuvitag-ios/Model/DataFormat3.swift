@@ -55,7 +55,7 @@ struct DataFormat3 {
 public struct SensorValues {
     let humidity: Float         // percentage
     let temperature: Float      // degrees Celsius
-    let pressure: Int           // hPa
+    let pressure: Float         // hPa
     let accelerationX: Int      // mG
     let accelerationY: Int      // mG
     let accelerationZ: Int      // mG
@@ -64,8 +64,8 @@ public struct SensorValues {
     
     init(data rawData: DataFormat3) {
         self.humidity = Float(rawData.humidity) * 0.5
-        self.temperature = Float(rawData.temperatureWhole) + (Float(rawData.temperatureFraction) / 100.0)
-        self.pressure = Int((Float(rawData.pressure) + 50_000.0) / 100.0)
+        self.temperature = (Float(rawData.temperatureWhole) + (Float(rawData.temperatureFraction) / 100.0))//.rounded(toPlaces: 2)
+        self.pressure = (Float(rawData.pressure) + 50_000.0) / 100.0
         self.accelerationX = Int(rawData.accelerationX)
         self.accelerationY = Int(rawData.accelerationY)
         self.accelerationZ = Int(rawData.accelerationZ)
@@ -73,3 +73,11 @@ public struct SensorValues {
         self.rssi = rawData.rssi
     }
 }
+
+extension Float {
+    func rounded(toPlaces places: Int) -> Float {
+        let divisor = pow(10.0, Float(places))
+        return (self * divisor).rounded(.down) / divisor
+    }
+}
+
