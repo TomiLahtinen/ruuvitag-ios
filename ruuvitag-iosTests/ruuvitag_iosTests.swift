@@ -25,19 +25,19 @@ class ruuvitag_iosTests: XCTestCase {
         // Represents the following payload:
         // - Manufacturer ID = 0x0499
         // - Data format version = 3
-        // - Humidity = 64%
-        // - Temperature = 22.5 degrees Celsius
-        // - Pressure = 1008 hPa
+        // - Humidity = 31%
+        // - Temperature = 22.18 degrees Celsius
+        // - Pressure = 998.36 hPa
         // - Acceleration X, Y, Z all = 1000
-        // - Battery voltage = 3200 mV
+        // - Battery voltage = 2989 mV
         let bytes: [UInt8] = [
             0x99, 0x04,  // manufacturer
             0x03,        // version
-            0x80,        // humidity
-            0x16, 0x50,  // temperature
-            0xC6, 0x70,  // pressure
+            0x3E,        // humidity
+            0x16, 0x12,  // temperature
+            0xC2, 0xAC,  // pressure
             0x03, 0xE8, 0x03, 0xE8, 0x03, 0xE8,  // acceleration
-            0x0C, 0x80,  // voltage
+            0x0B, 0xAD,  // voltage
             0x00, 0x00, 0x00, 0x00  // filler
         ]
         let payload = Data(bytes: bytes)
@@ -45,13 +45,13 @@ class ruuvitag_iosTests: XCTestCase {
         print(data)
         if let d = data {
             let values = SensorValues(data: d)
-            XCTAssertEqual(values.humidity, 64.0, "actual = \(values.humidity)")
-            //XCTAssertEqual(values.temperature, 22.5, "actual = \(values.temperature)")
-            XCTAssertEqual(values.pressure, 1008, "actual = \(values.pressure)")
+            XCTAssertEqual(values.humidity, 31.0, "actual = \(values.humidity)")
+            XCTAssertEqual(values.temperature, 22.18, "actual = \(values.temperature)")
+            XCTAssertEqual(values.pressure, 998.36, "actual = \(values.pressure)")
             XCTAssertEqual(values.accelerationX, 1000, "actual = \(values.accelerationX)")
             XCTAssertEqual(values.accelerationY, 1000, "actual = \(values.accelerationY)")
             XCTAssertEqual(values.accelerationZ, 1000, "actual = \(values.accelerationZ)")
-            XCTAssertEqual(values.voltage, 3200, "actual = \(values.voltage)")
+            XCTAssertEqual(values.voltage, 2989, "actual = \(values.voltage)")
         }
         else {
             XCTFail()
