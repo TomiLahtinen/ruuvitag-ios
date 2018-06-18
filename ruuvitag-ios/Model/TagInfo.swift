@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct TagInfo {
-    let uuid: UUID
-    let name: String?
-    let sensorValues: SensorValues
+public struct RTTagInfo {
+    public let uuid: UUID
+    public let name: String?
+    public let sensorValues: RTSensorValues
 }

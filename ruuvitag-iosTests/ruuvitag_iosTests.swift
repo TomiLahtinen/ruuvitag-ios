@@ -41,9 +41,9 @@ class ruuvitag_iosTests: XCTestCase {
             0x00, 0x00, 0x00, 0x00  // filler
         ]
         let payload = Data(bytes: bytes)
-        let data = DataFormat3.decode(data: payload)
+        let data = RTDataFormat3.decode(data: payload)
         if let d = data {
-            let values = SensorValues(data: d)
+            let values = RTSensorValues(data: d)
             XCTAssertEqual(values.humidity, 31.0, "actual = \(values.humidity)")
             XCTAssertEqual(values.temperature, 22.18, "actual = \(values.temperature)")
             XCTAssertEqual(values.pressure, 998.36, "actual = \(values.pressure)")

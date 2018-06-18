@@ -9,24 +9,24 @@
 import Foundation
 import CoreBluetooth
 
-public protocol RuuviTags {
+public protocol RTRuuviTagsProtocol {
     func startScanning()
     func stopScanning()
 }
 
-extension RuuviTags {
-    public static func listen(forAdvertisement dataReceived: @escaping (TagInfo) -> ()) -> RuuviTags {
-        return RuuviTagConnector(dataReceived)
+open class RTRuuviTags {
+    public static func listen(forAdvertisement dataReceived: @escaping (RTTagInfo) -> ()) -> RTRuuviTagsProtocol {
+        return RTRuuviTagConnector(dataReceived)
     }
 }
 
-fileprivate class RuuviTagConnector: NSObject, RuuviTags {
+fileprivate class RTRuuviTagConnector: NSObject, RTRuuviTagsProtocol {
 
-    private let advertisementData: (TagInfo) -> ()
+    private let advertisementData: (RTTagInfo) -> ()
     private var centralManager: CBCentralManager
     private let dataDispatchQueue = DispatchQueue(label: "RuuviData_DispatchQueue")
     
-    fileprivate init(_ advertisementData: @escaping (TagInfo) -> ()) {
+    fileprivate init(_ advertisementData: @escaping (RTTagInfo) -> ()) {
         self.advertisementData = advertisementData
         
         let opts = [CBCentralManagerScanOptionSolicitedServiceUUIDsKey: true,
@@ -51,7 +51,7 @@ fileprivate class RuuviTagConnector: NSObject, RuuviTags {
     }
 }
 
-extension RuuviTagConnector: CBCentralManagerDelegate {
+extension RTRuuviTagConnector: CBCentralManagerDelegate {
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch centralManager.state {
         case .poweredOn:
@@ -63,9 +63,9 @@ extension RuuviTagConnector: CBCentralManagerDelegate {
     
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if let manufacturerData = advertisementData[CBAdvertisementDataManufacturerDataKey],
-            let rawData = DataFormat3.decode(data: manufacturerData as? Data, rssi: RSSI.intValue) {
-            let sensorValues = SensorValues.init(data: rawData)
-            self.advertisementData(TagInfo(uuid: peripheral.identifier, name: peripheral.name, sensorValues: sensorValues))
+            let rawData = RTDataFormat3.decode(data: manufacturerData as? Data, rssi: RSSI.intValue) {
+            let sensorValues = RTSensorValues.init(data: rawData)
+            self.advertisementData(RTTagInfo(uuid: peripheral.identifier, name: peripheral.name, sensorValues: sensorValues))
         }
     }
 }

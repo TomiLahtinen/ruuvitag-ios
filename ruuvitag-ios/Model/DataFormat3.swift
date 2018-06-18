@@ -8,28 +8,28 @@
 
 import Foundation
 
-struct DataFormat3 {
+public struct RTDataFormat3 {
     
-    let manufacturer: UInt16
-    let version: UInt8
-    let humidity: UInt8
-    let temperatureWhole: Int8
-    let temperatureFraction: UInt8
-    let pressure: UInt16
-    let accelerationX: Int16
-    let accelerationY: Int16
-    let accelerationZ: Int16
-    let voltage: UInt16
-    let rssi: Int
+    public let manufacturer: UInt16
+    public let version: UInt8
+    public let humidity: UInt8
+    public let temperatureWhole: Int8
+    public let temperatureFraction: UInt8
+    public let pressure: UInt16
+    public let accelerationX: Int16
+    public let accelerationY: Int16
+    public let accelerationZ: Int16
+    public let voltage: UInt16
+    public let rssi: Int
     
-    static func decode(data: Data?, rssi: Int = -1000) -> DataFormat3? {
+    public static func decode(data: Data?, rssi: Int = -1000) -> RTDataFormat3? {
         guard let dataBytes = data?.bytes else {
             return nil
         }
         if dataBytes.count != 20 {
             return nil
         }
-        let result = DataFormat3(
+        let result = RTDataFormat3(
             manufacturer: concatenateBytes(dataBytes[0], dataBytes[1]),
             version: dataBytes[2],
             humidity: dataBytes[3],
@@ -41,7 +41,7 @@ struct DataFormat3 {
             accelerationZ: signed(concatenateBytes(dataBytes[12], dataBytes[13])),
             voltage: concatenateBytes(dataBytes[14], dataBytes[15]),
             rssi: rssi)
-        if result.manufacturer == DataConstants.RuuviManufacturerID {
+        if result.manufacturer == RTDataConstants.RuuviManufacturerID {
             return result
         }
         else {
@@ -51,17 +51,17 @@ struct DataFormat3 {
     }
 }
 
-public struct SensorValues {
-    let humidity: Float         // percentage
-    let temperature: Float      // degrees Celsius
-    let pressure: Float         // hPa
-    let accelerationX: Int      // mG
-    let accelerationY: Int      // mG
-    let accelerationZ: Int      // mG
-    let voltage: Int            // millivolts
-    let rssi: Int
+public struct RTSensorValues {
+    public let humidity: Float         // percentage
+    public let temperature: Float      // degrees Celsius
+    public let pressure: Float         // hPa
+    public let accelerationX: Int      // mG
+    public let accelerationY: Int      // mG
+    public let accelerationZ: Int      // mG
+    public let voltage: Int            // millivolts
+    public let rssi: Int
     
-    init(data rawData: DataFormat3) {
+    public init(data rawData: RTDataFormat3) {
         self.humidity = Float(rawData.humidity) * 0.5
         self.temperature = (Float(rawData.temperatureWhole) + (Float(rawData.temperatureFraction) / 100.0))//.rounded(toPlaces: 2)
         self.pressure = (Float(rawData.pressure) + 50_000.0) / 100.0

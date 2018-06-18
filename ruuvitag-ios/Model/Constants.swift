@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum DataConstants {
+enum RTDataConstants {
     static let RuuviManufacturerID = 39172
 }
 
-protocol RuuviData {
+protocol RTRuuviData {
     var version: Int { get }
-    var data: RuuviData { get }
+    var data: RTRuuviData { get }
 }
