@@ -17,17 +17,15 @@ RuuviTags.listen { tagInfo in
 
 
 ### Installation
-First, add this pod repository to your Podfile, sorry, no official Cocoapod yet
+Add RuuviTag-iOS to you project's `Podfile`
 ```
-pod 'RuuviTag-iOS', :git => 'https://github.com/TomiLahtinen/ruuvitag-ios.git', :tag => '1.0.5' 
+pod 'RuuviTag-iOS'
 ```
 
 Then run
 ```shell
 pod install
 ```
-in your App code
-
 
 ### Supported versions
 Only supports tags advertising in raw mode and Ruuvi's [data format 3](https://github.com/ruuvi/ruuvi-sensor-protocols#data-format-3-protocol-specification)
