@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftBytes
 
 struct DataFormat3 {
     

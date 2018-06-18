@@ -42,7 +42,6 @@ class ruuvitag_iosTests: XCTestCase {
         ]
         let payload = Data(bytes: bytes)
         let data = DataFormat3.decode(data: payload)
-        print(data)
         if let d = data {
             let values = SensorValues(data: d)
             XCTAssertEqual(values.humidity, 31.0, "actual = \(values.humidity)")

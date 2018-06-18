@@ -14,8 +14,10 @@
 		56C0906C20CFE5E000CCFED1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C0906B20CFE5E000CCFED1 /* Constants.swift */; };
 		56C0906F20CFE62000CCFED1 /* RuuviBLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C0906E20CFE62000CCFED1 /* RuuviBLEController.swift */; };
 		56C090AB20D1194500CCFED1 /* TagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C090AA20D1194500CCFED1 /* TagInfo.swift */; };
-		AEA4892E81B11C2267BC31BF /* Pods_ruuvitag_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCD6FDA99A0C7E740DB3415 /* Pods_ruuvitag_ios.framework */; };
-		E21DDFBAC45C3A8C8E7EF97B /* Pods_ruuvitag_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D463DBE97B8ADAEF948F1A /* Pods_ruuvitag_iosTests.framework */; };
+		56E36B8F20D3DF8B00A1E35F /* ruuvitag_tvos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E36B8E20D3DF8B00A1E35F /* ruuvitag_tvos.swift */; };
+		56E36B9820D7D06E00A1E35F /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E36B9720D7D06E00A1E35F /* Bytes.swift */; };
+		56E36B9920D7D2CD00A1E35F /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E36B9720D7D06E00A1E35F /* Bytes.swift */; };
+		56E36B9A20D7D2CE00A1E35F /* Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E36B9720D7D06E00A1E35F /* Bytes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,8 +30,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		56E36B8A20D3DF8B00A1E35F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		5178233A873BB74486CE4AD3 /* Pods-ruuvitag-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ruuvitag-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ruuvitag-ios/Pods-ruuvitag-ios.release.xcconfig"; sourceTree = "<group>"; };
 		56C0904E20CFE4FE00CCFED1 /* ruuvitag_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ruuvitag_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C0905120CFE4FE00CCFED1 /* ruuvitag_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ruuvitag_ios.h; sourceTree = "<group>"; };
 		56C0905220CFE4FE00CCFED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,11 +53,9 @@
 		56C0906B20CFE5E000CCFED1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		56C0906E20CFE62000CCFED1 /* RuuviBLEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuuviBLEController.swift; sourceTree = "<group>"; };
 		56C090AA20D1194500CCFED1 /* TagInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfo.swift; sourceTree = "<group>"; };
-		9FCD6FDA99A0C7E740DB3415 /* Pods_ruuvitag_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ruuvitag_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A71C3EE422DB28F5AD9C64BB /* Pods-ruuvitag-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ruuvitag-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ruuvitag-ios/Pods-ruuvitag-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		B323584A72FAD114CB046978 /* Pods-ruuvitag-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ruuvitag-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ruuvitag-iosTests/Pods-ruuvitag-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B42AC35E673C6C9322066514 /* Pods-ruuvitag-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ruuvitag-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ruuvitag-iosTests/Pods-ruuvitag-iosTests.release.xcconfig"; sourceTree = "<group>"; };
-		C4D463DBE97B8ADAEF948F1A /* Pods_ruuvitag_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ruuvitag_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56E36B8C20D3DF8B00A1E35F /* libruuvitag-tvos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libruuvitag-tvos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56E36B8E20D3DF8B00A1E35F /* ruuvitag_tvos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ruuvitag_tvos.swift; sourceTree = "<group>"; };
+		56E36B9720D7D06E00A1E35F /* Bytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bytes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEA4892E81B11C2267BC31BF /* Pods_ruuvitag_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,32 +71,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				56C0905820CFE4FE00CCFED1 /* ruuvitag_ios.framework in Frameworks */,
-				E21DDFBAC45C3A8C8E7EF97B /* Pods_ruuvitag_iosTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56E36B8920D3DF8B00A1E35F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4EAB73AF74892CF726898690 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A71C3EE422DB28F5AD9C64BB /* Pods-ruuvitag-ios.debug.xcconfig */,
-				5178233A873BB74486CE4AD3 /* Pods-ruuvitag-ios.release.xcconfig */,
-				B323584A72FAD114CB046978 /* Pods-ruuvitag-iosTests.debug.xcconfig */,
-				B42AC35E673C6C9322066514 /* Pods-ruuvitag-iosTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		56C0904420CFE4FE00CCFED1 = {
 			isa = PBXGroup;
 			children = (
 				56C0905020CFE4FE00CCFED1 /* ruuvitag-ios */,
 				56C0905B20CFE4FE00CCFED1 /* ruuvitag-iosTests */,
+				56E36B8D20D3DF8B00A1E35F /* ruuvitag-tvos */,
 				56C0904F20CFE4FE00CCFED1 /* Products */,
-				4EAB73AF74892CF726898690 /* Pods */,
-				FDA7EB6E43A122EA4394EE93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +99,7 @@
 			children = (
 				56C0904E20CFE4FE00CCFED1 /* ruuvitag_ios.framework */,
 				56C0905720CFE4FE00CCFED1 /* ruuvitag-iosTests.xctest */,
+				56E36B8C20D3DF8B00A1E35F /* libruuvitag-tvos.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 		56C0905020CFE4FE00CCFED1 /* ruuvitag-ios */ = {
 			isa = PBXGroup;
 			children = (
+				56E36B9B20D7D2DF00A1E35F /* Utils */,
 				56C0906D20CFE60C00CCFED1 /* Controllers */,
 				56C0906820CFE5BE00CCFED1 /* Model */,
 				56C0905120CFE4FE00CCFED1 /* ruuvitag_ios.h */,
@@ -137,13 +143,20 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		FDA7EB6E43A122EA4394EE93 /* Frameworks */ = {
+		56E36B8D20D3DF8B00A1E35F /* ruuvitag-tvos */ = {
 			isa = PBXGroup;
 			children = (
-				9FCD6FDA99A0C7E740DB3415 /* Pods_ruuvitag_ios.framework */,
-				C4D463DBE97B8ADAEF948F1A /* Pods_ruuvitag_iosTests.framework */,
+				56E36B8E20D3DF8B00A1E35F /* ruuvitag_tvos.swift */,
 			);
-			name = Frameworks;
+			path = "ruuvitag-tvos";
+			sourceTree = "<group>";
+		};
+		56E36B9B20D7D2DF00A1E35F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				56E36B9720D7D06E00A1E35F /* Bytes.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,12 +177,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56C0906220CFE4FE00CCFED1 /* Build configuration list for PBXNativeTarget "ruuvitag-ios" */;
 			buildPhases = (
-				157EBA1B3ADB4AD0276C7840 /* [CP] Check Pods Manifest.lock */,
 				56C0904920CFE4FE00CCFED1 /* Sources */,
 				56C0904A20CFE4FE00CCFED1 /* Frameworks */,
 				56C0904B20CFE4FE00CCFED1 /* Headers */,
 				56C0904C20CFE4FE00CCFED1 /* Resources */,
-				0F77D3B9C2C3138814E83CC5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,12 +195,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56C0906520CFE4FE00CCFED1 /* Build configuration list for PBXNativeTarget "ruuvitag-iosTests" */;
 			buildPhases = (
-				E93DD036FE7402768C4EEA67 /* [CP] Check Pods Manifest.lock */,
 				56C0905320CFE4FE00CCFED1 /* Sources */,
 				56C0905420CFE4FE00CCFED1 /* Frameworks */,
 				56C0905520CFE4FE00CCFED1 /* Resources */,
-				A6299E3A7D35065B2C07C78F /* [CP] Embed Pods Frameworks */,
-				179AD767D31874FB2F3B7C99 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,6 +208,23 @@
 			productName = "ruuvitag-iosTests";
 			productReference = 56C0905720CFE4FE00CCFED1 /* ruuvitag-iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		56E36B8B20D3DF8B00A1E35F /* ruuvitag-tvos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56E36B9220D3DF8B00A1E35F /* Build configuration list for PBXNativeTarget "ruuvitag-tvos" */;
+			buildPhases = (
+				56E36B8820D3DF8B00A1E35F /* Sources */,
+				56E36B8920D3DF8B00A1E35F /* Frameworks */,
+				56E36B8A20D3DF8B00A1E35F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ruuvitag-tvos";
+			productName = "ruuvitag-tvos";
+			productReference = 56E36B8C20D3DF8B00A1E35F /* libruuvitag-tvos.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -218,6 +243,9 @@
 					56C0905620CFE4FE00CCFED1 = {
 						CreatedOnToolsVersion = 9.4;
 					};
+					56E36B8B20D3DF8B00A1E35F = {
+						CreatedOnToolsVersion = 9.4;
+					};
 				};
 			};
 			buildConfigurationList = 56C0904820CFE4FE00CCFED1 /* Build configuration list for PBXProject "ruuvitag-ios" */;
@@ -234,6 +262,7 @@
 			targets = (
 				56C0904D20CFE4FE00CCFED1 /* ruuvitag-ios */,
 				56C0905620CFE4FE00CCFED1 /* ruuvitag-iosTests */,
+				56E36B8B20D3DF8B00A1E35F /* ruuvitag-tvos */,
 			);
 		};
 /* End PBXProject section */
@@ -255,93 +284,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0F77D3B9C2C3138814E83CC5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ruuvitag-ios/Pods-ruuvitag-ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		157EBA1B3ADB4AD0276C7840 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ruuvitag-ios-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		179AD767D31874FB2F3B7C99 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ruuvitag-iosTests/Pods-ruuvitag-iosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6299E3A7D35065B2C07C78F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ruuvitag-iosTests/Pods-ruuvitag-iosTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftBytes/SwiftBytes.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftBytes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ruuvitag-iosTests/Pods-ruuvitag-iosTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E93DD036FE7402768C4EEA67 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ruuvitag-iosTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		56C0904920CFE4FE00CCFED1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -349,6 +291,7 @@
 			files = (
 				56C090AB20D1194500CCFED1 /* TagInfo.swift in Sources */,
 				56C0906A20CFE5CE00CCFED1 /* DataFormat3.swift in Sources */,
+				56E36B9820D7D06E00A1E35F /* Bytes.swift in Sources */,
 				56C0906C20CFE5E000CCFED1 /* Constants.swift in Sources */,
 				56C0906F20CFE62000CCFED1 /* RuuviBLEController.swift in Sources */,
 			);
@@ -359,6 +302,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				56C0905D20CFE4FE00CCFED1 /* ruuvitag_iosTests.swift in Sources */,
+				56E36B9A20D7D2CE00A1E35F /* Bytes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56E36B8820D3DF8B00A1E35F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56E36B8F20D3DF8B00A1E35F /* ruuvitag_tvos.swift in Sources */,
+				56E36B9920D7D2CD00A1E35F /* Bytes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,7 +448,6 @@
 		};
 		56C0906320CFE4FE00CCFED1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A71C3EE422DB28F5AD9C64BB /* Pods-ruuvitag-ios.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
@@ -509,11 +461,7 @@
 				INFOPLIST_FILE = "ruuvitag-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fi.solita.ruuvitag-ios";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -525,7 +473,6 @@
 		};
 		56C0906420CFE4FE00CCFED1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5178233A873BB74486CE4AD3 /* Pods-ruuvitag-ios.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
@@ -539,11 +486,7 @@
 				INFOPLIST_FILE = "ruuvitag-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fi.solita.ruuvitag-ios";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -554,17 +497,12 @@
 		};
 		56C0906620CFE4FE00CCFED1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B323584A72FAD114CB046978 /* Pods-ruuvitag-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YU4AFJ6SHS;
 				INFOPLIST_FILE = "ruuvitag-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studiowannabe.ruuvitag-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -574,21 +512,46 @@
 		};
 		56C0906720CFE4FE00CCFED1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B42AC35E673C6C9322066514 /* Pods-ruuvitag-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YU4AFJ6SHS;
 				INFOPLIST_FILE = "ruuvitag-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studiowannabe.ruuvitag-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		56E36B9020D3DF8B00A1E35F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YU4AFJ6SHS;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		56E36B9120D3DF8B00A1E35F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YU4AFJ6SHS;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
 			};
 			name = Release;
 		};
@@ -618,6 +581,15 @@
 			buildConfigurations = (
 				56C0906620CFE4FE00CCFED1 /* Debug */,
 				56C0906720CFE4FE00CCFED1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56E36B9220D3DF8B00A1E35F /* Build configuration list for PBXNativeTarget "ruuvitag-tvos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56E36B9020D3DF8B00A1E35F /* Debug */,
+				56E36B9120D3DF8B00A1E35F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
