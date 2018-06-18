@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RuuviTag-iOS"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "RuuviTag iOS/tvOS Library"
   s.description  = <<-DESC
   Library to handle RuuviTag advertisement data listening
