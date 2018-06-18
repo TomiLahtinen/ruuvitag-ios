@@ -6,7 +6,7 @@ xcode_sdk: iphonesimulator11.3
 
 env:
     global:
-        - WORKSPACE=ruuvitag-ios.xcworkspace
+        - PROJECT=ruuvitag-ios.xcodeproj
         - SCHEME=ruuvitag-ios
         - DESTINATION='platform=iOS Simulator,name=iPhone X,OS=11.3'
         - SDK=iphonesimulator
@@ -20,4 +20,4 @@ script:
     - set -o pipefail
     - xcodebuild -version
     - xcodebuild -showsdks
-    - xcrun xcodebuild test -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION"
+    - xcrun xcodebuild test -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION"
