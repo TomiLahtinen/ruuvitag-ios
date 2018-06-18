@@ -9,7 +9,7 @@ Simple way to listen to RuuviTags' advertisement data on iOS. Put your tag to ra
 ```swift
 import RuuviTag_iOS
 
-RuuviTags.listen { tagInfo in 
+let ruuviTags = RTRuuviTags.listen() { tagInfo in
   // Do your thing like for example
   debugPrint("Tag", tagInfo.uuid.uuidString, "sensor values", tagInfo.sensorValues)
 }
