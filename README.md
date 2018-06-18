@@ -19,7 +19,7 @@ RuuviTags.listen { tagInfo in
 ### Installation
 First, add this pod repository to your Podfile, sorry, no official Cocoapod yet
 ```
-pod 'RuuviTag-iOS', :git => 'https://github.com/TomiLahtinen/ruuvitag-ios.git', :tag => '1.0.4' 
+pod 'RuuviTag-iOS', :git => 'https://github.com/TomiLahtinen/ruuvitag-ios.git', :tag => '1.0.5' 
 ```
 
 Then run
